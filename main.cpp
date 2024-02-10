@@ -1,9 +1,10 @@
 #include "SFML/Graphics.hpp"
-#include "screen.h"
+#include "Classes/Screen/screen.h"
 #include <list>
 #include <iostream>
 #include <filesystem>
-#include "Button.h"
+#include "Classes/Button/button.hpp"
+#include "Classes/Button/textButton.hpp"
 #include <map>
 #include "Classes/Player/player.h"
 #include "Classes/Player/user.hpp"

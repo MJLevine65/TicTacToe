@@ -199,20 +199,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Classes\Button\button.cpp" />
+    <ClCompile Include="Classes\Button\textButton.cpp" />
     <ClCompile Include="Classes\Player\ai.cpp" />
     <ClCompile Include="Classes\Player\player.cpp" />
-    <ClCompile Include="Classes\Player\User.cpp" />
-    <ClCompile Include="HeyComic.h" />
+    <ClCompile Include="Classes\Player\user.cpp" />
+    <ClCompile Include="Classes\Screen\screen.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h" />
+    <ClInclude Include="Classes\Button\button.hpp" />
+    <ClInclude Include="Classes\Button\textButton.hpp" />
+    <ClInclude Include="Classes\HeyComic.h" />
     <ClInclude Include="Classes\Player\ai.hpp" />
     <ClInclude Include="Classes\Player\player.h" />
     <ClInclude Include="Classes\Player\user.hpp" />
-    <ClInclude Include="screen.h" />
+    <ClInclude Include="Classes\Screen\screen.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sfml-audio-2.dll" />
