@@ -186,7 +186,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\SFML-2.6.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\SFML-2.6.1\include; ${workspaceFolder}</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -200,18 +200,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Classes\Player\ai.cpp" />
+    <ClCompile Include="Classes\Player\player.cpp" />
+    <ClCompile Include="Classes\Player\User.cpp" />
     <ClCompile Include="HeyComic.h" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="player.cpp" />
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
-    <ClInclude Include="player.h" />
+    <ClInclude Include="Classes\Player\ai.hpp" />
+    <ClInclude Include="Classes\Player\player.h" />
+    <ClInclude Include="Classes\Player\user.hpp" />
     <ClInclude Include="screen.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="openal32.dll" />
     <None Include="sfml-audio-2.dll" />
     <None Include="sfml-audio-d-2.dll" />
     <None Include="sfml-graphics-2.dll" />

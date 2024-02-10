@@ -5,7 +5,9 @@
 #include <filesystem>
 #include "Button.h"
 #include <map>
-#include "player.h"
+#include "Classes/Player/player.h"
+#include "Classes/Player/user.hpp"
+#include "Classes/Player/ai.hpp"
 #include "HeyComic.h"
 using namespace sf;
 

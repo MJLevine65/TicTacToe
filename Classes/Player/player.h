@@ -1,7 +1,11 @@
 #pragma once
-#include "button.h"
+#include "../Button.h"
 #include <random>
 #include <algorithm>
+
+
+
+
 class Player {
 	public:
 		char type;
