@@ -9,7 +9,7 @@ class User : public Player
 		User();
 		User(char t, bool f);
 
-		int play_turn(int tile, Board b);
+		int play_turn(int tile, Board* board);
 
 
 };

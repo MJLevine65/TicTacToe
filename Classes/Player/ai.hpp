@@ -8,9 +8,9 @@ class AI : public Player
 		AI();
 		AI(char t, bool f);
 
-		int play_turn(Board board);
+		int play_turn(Board* board);
 	private:
-		int recur_turn(Board board, char type);
+		int recur_turn(Board* board, char type);
 
 
 

@@ -164,7 +164,7 @@ int main() {
       
 
                 if (choice != -1) {
-                    choice = user.play_turn(choice, gameboard);
+                    choice = user.play_turn(choice, &gameboard);
                     switch (choice) {
                     case 0:
                         user.turn = false; ai.turn = true;
@@ -184,7 +184,7 @@ int main() {
                 continue;
             }
             else if (ai.turn){
-                choice = ai.play_turn(gameboard);
+                choice = ai.play_turn(&gameboard);
                 switch (choice) {
                 case 0:
                     user.turn = true; ai.turn = false;
