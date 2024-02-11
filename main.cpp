@@ -5,6 +5,7 @@
 #include <filesystem>
 #include "Classes/Button/button.hpp"
 #include "Classes/Button/textButton.hpp"
+#include "Classes/Board/board.hpp"
 #include <map>
 #include "Classes/Player/player.h"
 #include "Classes/Player/user.hpp"
@@ -38,7 +39,7 @@ int main() {
     Text title = Text("Tic Tac Toe", font, 100); title.setPosition(706, 150);
     Text pick = Text("Pick X or O", font, 50); pick.setPosition(820, 400);
     Text instructions("Type corresponding number on keyboard to select", font, 20); instructions.setPosition(720, 250);
-
+    std::cout << "here" << std::endl;
     //Define Buttons
     std::list<textButton*> textbuttons;
     textButton playButton = textButton(835, 350, 250, 150, Color(250, 0, 0, 255), font, "Play", 20);
@@ -61,7 +62,7 @@ int main() {
 
     texts.push_back(&title);
     textbuttons.push_back(&playButton);
-    char board[] = { '-','-','-','-','-','-','-','-','-' };
+    Board gameboard = Board();
     User user;
     AI ai;
 
@@ -83,7 +84,7 @@ int main() {
             for (RectangleShape tile : tileShapes) { window.draw(tile); }
             for (Text num : tileNumbers) { window.draw(num); }
             for (int i = 0; i < 9; i++) {
-                switch (board[i]) {
+                switch (gameboard.board[i]) {
                 case 'X':
                     window.draw(xTexts[i]);
                     break;
@@ -144,7 +145,7 @@ int main() {
                     textbuttons.clear(); textbuttons.push_back(&playButton);
                     showTiles = false;
                     textbuttons.remove(&playAgain);
-                    for (int i = 0; i < 9; i++) { board[i] = '-'; }
+                    for (int i = 0; i < 9; i++) { gameboard.board[i] = '-'; }
                     background_color = Color(0, 0, 255, 255);
                 }
             }
@@ -153,18 +154,17 @@ int main() {
             if (user.turn) {
               
                 choice = -1;
-                if (Keyboard::isKeyPressed(Keyboard::Num1) && board[0] == '-') { choice = 0; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num2) && board[1] == '-') { choice = 1;  }
-                else if (Keyboard::isKeyPressed(Keyboard::Num3) && board[2] == '-') { choice = 2; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num4) && board[3] == '-') { choice = 3; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num5) && board[4] == '-') { choice = 4; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num6) && board[5] == '-') { choice = 5; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num7) && board[6] == '-') { choice = 6; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num8) && board[7] == '-') { choice = 7; }
-                else if (Keyboard::isKeyPressed(Keyboard::Num9) && board[8] == '-') { choice = 8; }
+                Keyboard::Key numkeys[9] = { Keyboard::Num1,Keyboard::Num2,Keyboard::Num3
+                    ,Keyboard::Num4,Keyboard::Num5,Keyboard::Num6,Keyboard::Num7,Keyboard::Num8,Keyboard::Num9 };
+       
+                for (int i = 0; i < 9;i++) {
+                    if (Keyboard::isKeyPressed(numkeys[i]) && gameboard.board[i] == '-') { choice = i; }
+
+                }
+      
 
                 if (choice != -1) {
-                    choice = user.play_turn(choice, board);
+                    choice = user.play_turn(choice, gameboard);
                     switch (choice) {
                     case 0:
                         user.turn = false; ai.turn = true;
@@ -184,7 +184,7 @@ int main() {
                 continue;
             }
             else if (ai.turn){
-                choice = ai.play_turn(board);
+                choice = ai.play_turn(gameboard);
                 switch (choice) {
                 case 0:
                     user.turn = true; ai.turn = false;

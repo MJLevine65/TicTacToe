@@ -4,20 +4,27 @@
 
 
 
-int AI::recur_turn(char board[], bool player) {
+int AI::recur_turn(Board board, char type) {
+	/*
+	bool recur(char board[], char aitype, char othertype, int poss) {
+
+	};*/
+
 	std::vector<int> possNums;
-	for (int i = 0; i < sizeof(board); i++) {
-		if (board[i] == '-') {
+	for (int i = 0; i < sizeof(board.board); i++) {
+		if (board.board[i] == '-') {
 			possNums.push_back(i);
-			board[i] == this->type;
-			if (check_board(board)) {
-				return i;
-			}
-			else {
-				board[i] = '-';
-			}
+
+			//If picking this tile would win return this tile as selection
+			board.board[i] = this->type;
+			if (board.check_board(this->type)) {return i;}
+			else { board.board[i] = '-';}
 		}
 	}
+	if (possNums.size() == 1){return possNums[0];}
+
+	
+		
 	int index = rand() % possNums.size();
 	std::cout << "size " << possNums.size() << std::endl;
 
@@ -30,14 +37,20 @@ AI::AI() { this->turn = false; };
 AI::AI(char t, bool f) : Player(t, f) {
 
 }
-int AI::play_turn(char board[]) {
-	char board2[sizeof(board)];
-	std::copy_n(board, sizeof(board), board2);
+int AI::play_turn(Board board) {
+	//Takes the game board as input,output is state of the game
+
+	//Create a new board with the values of board
+	Board board2 = board.copy();
+	//Make AI selection of what space to pick
 	int choice;
-	choice = recur_turn(board2, true);
+	choice = recur_turn(board2, this->type);
 	std::cout << "choice " << choice << std::endl;
-	board[choice] = this->type;
-	if (check_board(board)) { return 2; }
-	if (board_full(board)) { return 1; }
+	board.board[choice] = this->type;
+	//AI won
+	if (board.check_board(this->type)) { return 2; }
+	//Tie
+	if (board.board_full()) { return 1; }
+	//Continue Game
 	return 0;
 }

@@ -199,6 +199,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Board\board.cpp" />
     <ClCompile Include="Classes\Button\button.cpp" />
     <ClCompile Include="Classes\Button\textButton.cpp" />
     <ClCompile Include="Classes\Player\ai.cpp" />
@@ -208,6 +209,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Board\board.hpp" />
     <ClInclude Include="Classes\Button\button.hpp" />
     <ClInclude Include="Classes\Button\textButton.hpp" />
     <ClInclude Include="Classes\HeyComic.h" />

@@ -1,5 +1,6 @@
 #pragma once
 #include "player.h"
+#include "../Classes/Board/board.hpp"
 
 class AI : public Player
 	{
@@ -7,9 +8,9 @@ class AI : public Player
 		AI();
 		AI(char t, bool f);
 
-		int play_turn(char board[]);
+		int play_turn(Board board);
 	private:
-		int recur_turn(char board[], bool player);
+		int recur_turn(Board board, char type);
 
 
 

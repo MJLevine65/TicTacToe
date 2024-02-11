@@ -1,5 +1,6 @@
 #pragma once
 #include "player.h"
+#include "../Classes/Board/board.hpp"
 
 class User : public Player
 {
@@ -8,7 +9,7 @@ class User : public Player
 		User();
 		User(char t, bool f);
 
-		int play_turn(int tile, char board[]);
+		int play_turn(int tile, Board b);
 
 
 };
