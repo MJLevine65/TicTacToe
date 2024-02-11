@@ -24,9 +24,9 @@ int main() {
     
     font.loadFromMemory(&Hey_Comic_ttf, Hey_Comic_ttf_len);
     
-    int tileSize = 200;
-    int tileLeft = 660;
-    int tileTop = 300;
+    float tileSize = 200.0;
+    float tileLeft = 660.0;
+    float tileTop = 300.0;
     //Define text objects
     std::list<Text*> texts;
     std::list<Text> filledTiles;
@@ -51,8 +51,8 @@ int main() {
     RectangleShape tileShapes[9];
     //Create Board Tiles
     for (int i = 0; i < 9; i++) {
-        tileShapes[i] = RectangleShape(sf::Vector2f(tileSize, tileSize));
-        tileShapes[i].setPosition(tileLeft + tileSize * (i % 3), tileTop + tileSize * (i / 3));
+        tileShapes[i] = RectangleShape(sf::Vector2f(static_cast<float>(tileSize), static_cast<float>(tileSize)));
+        tileShapes[i].setPosition(static_cast<float>(tileLeft + tileSize * (i % 3)), static_cast<float>(tileTop + tileSize * (i / 3)));
         tileShapes[i].setFillColor(Color(240, 0, 0, 255));
         tileShapes[i].setOutlineColor(Color(0, 0, 0, 255));
         tileShapes[i].setOutlineThickness(2);
