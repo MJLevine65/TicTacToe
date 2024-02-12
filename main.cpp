@@ -10,11 +10,10 @@
 #include "Classes/Player/player.h"
 #include "Classes/Player/user.hpp"
 #include "Classes/Player/ai.hpp"
-#include "HeyComic.hpp"
+#include "./Assets/HeyComic.hpp"
 using namespace sf;
 
 int main() {
-    std::cout << std::filesystem::current_path() << std::endl;
 
     //Define Colors
     Color background_color = Color(0, 0, 255, 255);
@@ -39,7 +38,6 @@ int main() {
     Text title = Text("Tic Tac Toe", font, 100); title.setPosition(706, 150);
     Text pick = Text("Pick X or O", font, 50); pick.setPosition(820, 400);
     Text instructions("Type corresponding number on keyboard to select", font, 20); instructions.setPosition(720, 250);
-    std::cout << "here" << std::endl;
     //Define Buttons
     std::list<textButton*> textbuttons;
     textButton playButton = textButton(835, 350, 250, 150, Color(250, 0, 0, 255), font, "Play", 20);
@@ -122,8 +120,8 @@ int main() {
                 }
                 else if (Xbutton.hovering || Obutton.hovering) {
                     if (Xbutton.hovering) {
-                        user = User('X', true);
-                        ai = AI('O', false);
+                        user = User('X', false);
+                        ai = AI('O', true);
                     }
                     else {
                         user = User('O', true);
