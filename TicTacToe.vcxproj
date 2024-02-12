@@ -212,11 +212,11 @@
     <ClInclude Include="Classes\Board\board.hpp" />
     <ClInclude Include="Classes\Button\button.hpp" />
     <ClInclude Include="Classes\Button\textButton.hpp" />
-    <ClInclude Include="Classes\HeyComic.h" />
     <ClInclude Include="Classes\Player\ai.hpp" />
     <ClInclude Include="Classes\Player\player.h" />
     <ClInclude Include="Classes\Player\user.hpp" />
     <ClInclude Include="Classes\Screen\screen.h" />
+    <ClInclude Include="HeyComic.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sfml-audio-2.dll" />

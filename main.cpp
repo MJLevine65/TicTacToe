@@ -10,7 +10,7 @@
 #include "Classes/Player/player.h"
 #include "Classes/Player/user.hpp"
 #include "Classes/Player/ai.hpp"
-#include "HeyComic.h"
+#include "HeyComic.hpp"
 using namespace sf;
 
 int main() {

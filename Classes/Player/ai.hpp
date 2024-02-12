@@ -1,5 +1,6 @@
 #pragma once
 #include "player.h"
+#include <list>
 #include "../Classes/Board/board.hpp"
 
 class AI : public Player
@@ -10,7 +11,8 @@ class AI : public Player
 
 		int play_turn(Board* board);
 	private:
-		int recur_turn(Board* board, char type);
+		int minmax_recur(Board* board, int depth, bool ai, char aitype, char playertype);
+		int minmax(Board* board, char aitype);
 
 
 
